@@ -20,7 +20,9 @@ Feature: Import questions from a spreadsheet
 
   @javascript @_file_upload
   Scenario: Import a semicolon separated file with multiple choice and true/false questions
-    Given I am on the "Qbank 1" "core_question > question import" page logged in as "teacher"
+    # The qbank activity exists from Moodle 5.0; 4.5 skips this scenario.
+    Given the site is running Moodle version 5.0 or higher
+    And I am on the "Qbank 1" "core_question > question import" page logged in as "teacher"
     And I set the field "id_format_spreadsheet" to "1"
     And I upload "question/format/spreadsheet/tests/fixtures/semicolon.csv" file to "Import" filemanager
     When I press "id_submitbutton"
