@@ -1,0 +1,4 @@
+type,question,A,B,correct
+multichoice,Capital of France?,Paris,Rome,A
+multichoice,No answer given,x,y,
+essay,Unknown type,,,

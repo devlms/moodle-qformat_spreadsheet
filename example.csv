@@ -1,0 +1,6 @@
+type;question;A;B;C;D;E;correct;feedback
+multichoice;"What is 2 + 2?";3;4;5;;;B;"Two pairs make four."
+multichoice;"Pick the prime numbers";2;4;5;9;;A,C;
+truefalse;"Moodle is written in PHP.";;;;;;TRUE;
+multichoice;"Line one
+line two";yes;no;;;;A;
