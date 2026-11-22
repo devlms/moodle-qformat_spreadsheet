@@ -5,7 +5,9 @@ Feature: Import questions from a spreadsheet
   I need to import a CSV saved from Excel or Google Sheets
 
   Background:
-    Given the following "courses" exist:
+    # The qbank activity exists from Moodle 5.0; 4.5 skips these scenarios.
+    Given the site is running Moodle version 5.0 or higher
+    And the following "courses" exist:
       | fullname | shortname | format |
       | Course 1 | C1        | topics |
     And the following "users" exist:
@@ -20,9 +22,7 @@ Feature: Import questions from a spreadsheet
 
   @javascript @_file_upload
   Scenario: Import a semicolon separated file with multiple choice and true/false questions
-    # The qbank activity exists from Moodle 5.0; 4.5 skips this scenario.
-    Given the site is running Moodle version 5.0 or higher
-    And I am on the "Qbank 1" "core_question > question import" page logged in as "teacher"
+    Given I am on the "Qbank 1" "core_question > question import" page logged in as "teacher"
     And I set the field "id_format_spreadsheet" to "1"
     And I upload "question/format/spreadsheet/tests/fixtures/semicolon.csv" file to "Import" filemanager
     When I press "id_submitbutton"
