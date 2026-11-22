@@ -164,7 +164,7 @@ class qformat_spreadsheet extends qformat_default {
         $question = $this->defaultquestion();
         $question->qtype = $qtype;
         $name = ($row['name'] ?? '') !== '' ? $row['name'] : $row['question'];
-        $question->name = $this->create_default_question_name(s($name), get_string('questionname', 'question'));
+        $question->name = $this->create_default_question_name($name, get_string('questionname', 'question'));
         $question->questiontext = nl2br(s($row['question']), false);
         $question->questiontextformat = FORMAT_HTML;
         $question->generalfeedback = '';

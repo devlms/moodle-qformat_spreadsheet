@@ -12,6 +12,7 @@ Write multiple choice and true/false questions in Excel, Google Sheets or LibreO
 - Comma, semicolon (European Excel) and tab separated files work. Cells may contain line breaks. Columns can be in any order; feedback and name are optional.
 - Rows with a problem are skipped and named in the import report ("Row 3: ..."); the others are imported.
 - Text is imported as plain text (HTML in a cell is shown, not run).
+- Save as **CSV UTF-8** (Excel: File > Save As > CSV UTF-8; Google Sheets and LibreOffice use UTF-8 by default). Moodle refuses files in other encodings, which Excel's plain "CSV" uses for accented and Arabic text.
 
 Question bank > Import > Spreadsheet (CSV). See example.csv. Moodle 4.5 to 5.3.
 

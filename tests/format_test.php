@@ -75,6 +75,13 @@ final class format_test extends \advanced_testcase {
         $this->assertStringContainsString('Row 4', $out);
     }
 
+    public function test_names_keep_ampersands(): void {
+        $importer = new \qformat_spreadsheet();
+        $qs = $importer->readquestions($importer->read_csv("type,question,A,B,correct,name\nmultichoice,Q & A?,a,b,A,Rock & roll\n"));
+        $this->assertSame('Rock & roll', $qs[0]->name);
+        $this->assertSame('Q &amp; A?', $qs[0]->questiontext);
+    }
+
     public function test_text_is_escaped(): void {
         $importer = new \qformat_spreadsheet();
         $qs = $importer->readquestions($importer->read_csv("type,question,A,B,correct\nmultichoice,<script>x</script>,a,b,A\n"));
